@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome to Hospital Management</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('patient') }}">Manage Patients</a></li>
+            <li><a href="{{ url_for('doctor') }}">Manage Doctors</a></li>
+            <li><a href="{{ url_for('room') }}">Manage Rooms</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

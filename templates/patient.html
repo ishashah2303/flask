@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+    <h1>Patient Management</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('doctor') }}">Manage Doctors</a></li>
+            <li><a href="{{ url_for('room') }}">Manage Rooms</a></li>
+        </ul>
+    </nav>
+    <form method="post">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id">
+        <br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <br>
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age">
+        <br>
+        <label for="sex">Sex:</label>
+        <input type="text" id="sex" name="sex">
+        <br>
+        <label for="ailment">Ailment:</label>
+        <input type="text" id="ailment" name="ailment">
+        <br>
+        <label for="assigned_room">Assigned Room:</label>
+        <input type="text" id="assigned_room" name="assigned_room">
+        <br>
+        <label for="assigned_doctor">Assigned Doctor:</label>
+        <input type="text" id="assigned_doctor" name="assigned_doctor">
+        <br>
+        <input type="submit" value="Add Patient">
+    </form>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Sex</th>
+            <th>Ailment</th>
+            <th>Assigned Room</th>
+            <th>Assigned Doctor</th>
+        </tr>
+        {% for id, data in patients.items() %}
+        <tr>
+            <td>{{ id }}</td>
+            <td>{{ data[0] }}</td>
+            <td>{{ data[1] }}</td>
+            <td>{{ data[2] }}</td>
+            <td>{{ data[3] }}</td>
+            <td>{{ data[4] }}</td>
+            <td>{{ data[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

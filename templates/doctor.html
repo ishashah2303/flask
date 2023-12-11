@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('patient') }}">Manage Patients</a></li>
+            <li><a href="{{ url_for('room') }}">Manage Rooms</a></li>
+        </ul>
+    </nav>
+    <h1>Doctor Management</h1>
+    <form method="post">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id">
+        <br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <br>
+        <label for="specialization">Specialization:</label>
+        <input type="text" id="specialization" name="specialization">
+        <br>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone">
+        <br>
+        <input type="submit" value="Add Doctor">
+    </form>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Specialization</th>
+            <th>Phone</th>
+        </tr>
+        {% for id, data in doctors.items() %}
+        <tr>
+            <td>{{ id }}</td>
+            <td>{{ data[0] }}</td>
+            <td>{{ data[1] }}</td>
+            <td>{{ data[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

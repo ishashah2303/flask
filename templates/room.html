@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+    <h1>Room Management</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('doctor') }}">Manage Doctors</a></li>
+            <li><a href="{{ url_for('patient') }}">Manage Patients</a></li>
+        </ul>
+    </nav>
+    <form method="post">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id">
+        <br>
+        <label for="room_type">Room Type:</label>
+        <input type="text" id="room_type" name="room_type">
+        <br>
+        <label for="capacity">Capacity:</label>
+        <input type="text" id="capacity" name="capacity">
+        <br>
+        <label for="availability">Availability:</label>
+        <input type="text" id="availability" name="availability">
+        <br>
+        <input type="submit" value="Add Room">
+    </form>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Room Type</th>
+            <th>Capacity</th>
+            <th>Availability</th>
+        </tr>
+        {% for id, data in rooms.items() %}
+        <tr>
+            <td>{{ id }}</td>
+            <td>{{ data[0] }}</td>
+            <td>{{ data[1] }}</td>
+            <td>{{ data[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
